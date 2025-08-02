@@ -1,0 +1,2 @@
+This project is a front-end clone of the Advanced Image Steganography web interface, built using HTML, CSS, and JavaScript. It replicates the layout, design, and user interface of the original site, excluding the encoding and decoding functionality. The goal was to practice responsive design, dark mode toggle, and UI recreation using clean and modern front-end techniques.
+Built by Sidratul Muntaha
