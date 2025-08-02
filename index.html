@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Image Steganography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div>
+      <div class="logo"><i class="fas fa-shield"></i>Advanced Image Steganography</div>
+      <div class="subtitle">Conceal. Encrypt. Reveal.</div>
+    </div>
+    <div>
+      <i class="fas fa-moon" id="darkModeToggle"></i>
+      <i class="fa-brands fa-github" id="githubIcon" style="margin-left: 15px; cursor: pointer;"></i>
+    </div>
+
+  </header>
+
+  <div class="tabs">
+    <button class="tab-button active" onclick="showsection(this)" id="encode">Encode</button>
+    <button class="tab-button" onclick="showsection(this)" id="decode">Decode</button>
+    <button class="tab-button" onclick="showsection(this)" id="about">About</button>
+  </div>
+  <div id="encodesection">
+    <div class="card">
+      <h3><i class="fas fa-lock" style="color: #00ffd1;"></i> How to Encode Secret Messages</h3>
+      <ul>
+        <li><strong><span style="color: #00ffd1;">1.</span>Choose Your Image:</strong><br>Upload PNG, JPG, JPEG, BMP, or
+          GIF. Larger images = more capacity!
+        </li>
+        <li><strong><span style="color: #00ffd1;">2.</span> Write Your Secret:</strong><br>Type any message – text,
+          passwords, or data</li>
+        <li><strong><span style="color: #00ffd1;">3.</span>Add Security:</strong><br>Toggle encryption ON and set a
+          strong password</li>
+        <li><strong><span style="color: #00ffd1;">4.</span>Generate & Download:</strong><br>Get a visually identical
+          image with your hidden message</li>
+      </ul>
+      <div class="tip"><i class="fas fa-lightbulb"></i> Tip: The output image looks exactly the same but secretly
+        contains
+        your data!</div>
+    </div>
+
+    <div class="section">
+      <h3><i class="fas fa-eye"></i> Select Image</h3>
+      <p>Choose an image to hide your secret message in</p>
+      <div class="upload-box">
+        <i class="fas fa-image fa-2x"></i>
+        <p><strong>Upload an image</strong></p>
+        <p style="font-size: 0.85rem; color: #6b7280;">Drag and drop an image file, or click to browse</p>
+        <p style="font-size: 0.85rem; color: #6b7280;">Supports PNG, JPG, JPEG, BMP, GIF (max 50MB)</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>Secret Message</h3>
+      <p>Enter the text you want to hide in the image</p>
+      <textarea class="textarea" placeholder="Type your secret message here..."></textarea>
+      <div class="bottom-row">
+        <label><input type="checkbox"> <i class="fas fa-lock"></i> Enable Encryption</label>
+        <span style="font-size: 0.8rem; color: #6b7280;">0 characters</span>
+      </div>
+    </div>
+
+    <div class="section" style="display: flex; gap: 20px;">
+      <button class="btn-primary">Encode Message</button>
+      <button class="btn-secondary">Reset</button>
+    </div>
+  </div>
+
+  <div id="decodesection">
+    <div class="card">
+      <h3><i class="fas fa-unlock" style="color: #00ffd1;"></i> How to Decode Hidden Messages</h3>
+      <ul>
+        <li><strong><span style="color: #00ffd1;">1.</span> Upload Image:</strong><br>Select an image that contains a
+          secret message</li>
+        <li><strong><span style="color: #00ffd1;">2.</span> Extract Data:</strong><br>Click "Decode Message" to reveal
+          hidden content</li>
+        <li><strong><span style="color: #00ffd1;">3.</span> Enter Password:</strong><br>If encrypted, you'll be prompted
+          for the password</li>
+        <li><strong><span style="color: #00ffd1;">4.</span> Access Secret:</strong><br>Copy the revealed message or save
+          it securely</li>
+      </ul>
+      <div class="tip"><i class="fas fa-bolt" style="color: peru;"></i> Fast: Decoding happens instantly - no server
+        uploads required!</div>
+    </div>
+
+    <div class="section">
+      <h3><i class="fas fa-image"></i> Select Encoded Image</h3>
+      <p>Choose an image that contains a hidden message</p>
+      <div class="upload-box">
+        <i class="fas fa-image fa-2x"></i>
+        <p><strong>Upload an image</strong></p>
+        <p style="font-size: 0.85rem; color: #6b7280;">Supports PNG, JPG, JPEG, BMP, GIF (max 50MB)</p>
+      </div>
+    </div>
+
+    <div class="section btns">
+      <button class="btn-primary">Decode Message</button>
+      <button class="btn-secondary">Reset</button>
+    </div>
+
+
+  </div>
+
+  <div id="aboutsection">
+    <div class="card">
+      <h3><i class="fas fa-shield" style="color: #00ffd1;"></i> What is Steganography?</h3>
+      <p>Steganography is the art of hiding information within other non-secret, ordinary-looking files — such as
+        images. Unlike encryption, which scrambles the message but reveals that something is hidden, steganography
+        conceals the existence of the message itself.</p>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-microchip" style="color: #00ffd1;;"></i> How Our Technology Works</h3>
+      <p>A deep dive into the technical implementation.</p>
+      <h3><i class="fas fa-search" style="color: #00ffd1;"></i>LSB Steganography</h3>
+      <p>We use Least Significant Bit (LSB) substitution - the most reliable steganographic technique. Each pixel in an
+        image has red, green, and blue values from 0-255. By modifying only the last bit of each color channel, we can
+        hide data while keeping visual changes imperceptible (less than 0.4% difference).</p>
+
+      <div class="smallbox1">Original: RGB(254, 162, 89)<br>
+        Modified: RGB(255, 163, 88)<br>
+        <span style="color: blue;">Human eye: No difference!</span>🎯
+      </div>
+      <h3><i class="fas fa-lock" style="color: #00ffd1;"></i>AES-256 Encryption Layer</h3>
+      <p>Before hiding your message, we optionally encrypt it using AES-256 in CBC mode with PBKDF2 key derivation
+        (100,000 iterations). This adds an extra layer of protection - even if someone suspects steganography, they
+        still need your password to decrypt the message.</p>
+      <div class="smallbox2">
+        Message → Encrypt → Embed → Image<br>
+        Image → Extract → Decrypt → Message<br>
+        <span style="color: green;"> Double protection!</span> 🛡️
+      </div>
+      <div class="smallbox3">
+        <span style="color: blue;"><i class="fas fa-bolt"></i>Pro Tip</span><br>
+        The capacity of an image depends on its pixel count. A 1920×1080 image can hide approximately 777KB of data,
+        while maintaining perfect visual fidelity. That's enough for novels, documents, or even small files!
+      </div>
+
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-key" style="color: #00ffd1;"></i> Advanced Features</h3>
+      <p>Enterprise-grade capabilities in a simple interface</p>
+      <ul>
+        <li>
+          <span><i class="fas fa-shield" style="color: #00ffd1;"></i></span>
+          <strong>Military-Grade Security</strong>
+          <p>AES-256 encryption with PBKDF2 key derivation ensures your secrets stay secret.</p>
+        </li>
+        <li>
+          <span class="fas fa-gear" style="color: #00ffd1;"></span>
+          <strong>Advanced Algorithms</strong>
+          <p>Implements proven LSB (Least Significant Bit) steganography with cryptographic integrity.</p>
+        </li>
+        <li>
+          <span class="fas fa-eye" style="color: #00ffd1;"></span>
+          <strong>Invisible to Detection</strong>
+          <p>Messages are hidden in the least significant bits of pixels - completely undetectable to the naked eye.</p>
+        </li>
+        <li>
+          <span class="fas fa-bolt" style="color: #00ffd1;"></span>
+          <strong>Real-time Processing</strong>
+          <p>Fast encoding and decoding - no server uploads required. Everything happens in your browser.</p>
+        </li>
+        <li>
+          <span class="fas fa-image" style="color: #00ffd1;"></span>
+          <strong>Multiple Formats</strong>
+          <p>Support for PNG, JPG, JPEG, BMP, and GIF images of any size. Larger images can hide more data.</p>
+        </li>
+
+
+        <li>
+          <span class="fas fa-file" style="color: #00ffd1;"></span>
+          <strong>Metadata Preservation</strong>
+          <p>Original image properties and quality are maintained while hiding your secret data.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-users" style="color: #00ffd1;"></i> Real-World Applications</h3>
+      <ul>
+        <li>🕵️
+          Secure communication in sensitive environments</li>
+        <li>📝
+          Hidden backup of important passwords or keys</li>
+        <li>🎨
+          Digital watermarking for copyright protection</li>
+        <li>🔐
+          Covert file transfer without raising suspicion</li>
+        <li>📸
+          Adding metadata that survives image sharing</li>
+        <li>🎯
+          Educational demonstrations of cryptography</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><i class="fas fa-history" style="color: #00ffd1;"></i> A Brief History</h3>
+      <p>Steganography dates back to 440 BC when Histiaeus tattooed a message on his slave's scalp, let the hair grow
+        back, and sent him as a messenger. During WWII, spies used invisible ink and microdots..</p>
+      <p>Today's digital steganography leverages the complexity of digital media files. Our implementation follows
+        modern cryptographic standards while maintaining the time-tested principle of security through obscurity, backed
+        by mathematics.</p>
+    </div>
+  </div>
+
+
+  <footer>
+    Built with 💙 for 🌍 by Abu Zar Mishwani
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
